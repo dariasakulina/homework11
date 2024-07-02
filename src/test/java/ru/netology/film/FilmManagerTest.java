@@ -52,7 +52,7 @@ public class FilmManagerTest {
     }
 
     @Test
-    public void shouldNotFindMoreLimitTitles() {
+    public void shouldNotFindLast3Titles() {
 
         FilmManager manager = new FilmManager(3);
 
@@ -65,6 +65,42 @@ public class FilmManagerTest {
         manager.addTitle("Номер один");
 
         String[] expected = {"Номер один", "Тролли. Мировой тур", "Человек-невидимка"};
+        String[] actual = manager.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNotFindLastMore7Titles() {
+
+        FilmManager manager = new FilmManager(8);
+
+        manager.addTitle("Бладшот");
+        manager.addTitle("Вперёд");
+        manager.addTitle("Отель Белград");
+        manager.addTitle("Джентльмены");
+        manager.addTitle("Человек-невидимка");
+        manager.addTitle("Тролли. Мировой тур");
+        manager.addTitle("Номер один");
+
+        String[] expected = {"Номер один", "Тролли. Мировой тур", "Человек-невидимка", "Джентльмены", "Отель Белград", "Вперёд", "Бладшот" };
+        String[] actual = manager.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindLimitTitles() {
+
+        FilmManager manager = new FilmManager(7);
+
+        manager.addTitle("Бладшот");
+        manager.addTitle("Вперёд");
+        manager.addTitle("Отель Белград");
+        manager.addTitle("Джентльмены");
+        manager.addTitle("Человек-невидимка");
+        manager.addTitle("Тролли. Мировой тур");
+        manager.addTitle("Номер один");
+
+        String[] expected = {"Номер один", "Тролли. Мировой тур", "Человек-невидимка", "Джентльмены", "Отель Белград", "Вперёд", "Бладшот" };
         String[] actual = manager.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
