@@ -1,3 +1,5 @@
+package ru.netology.film;
+
 public class FilmManager {
 
     private String[] titles = new String[0];

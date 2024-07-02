@@ -1,3 +1,5 @@
+package ru.netology.film;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -62,7 +64,7 @@ public class FilmManagerTest {
         manager.addTitle("Тролли. Мировой тур");
         manager.addTitle("Номер один");
 
-        String[] expected = {"Номер один", "Тролли. Мировой тур", "Человек-невидимка" };
+        String[] expected = {"Номер один", "Тролли. Мировой тур", "Человек-невидимка"};
         String[] actual = manager.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
